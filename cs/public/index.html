@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crypto Sniper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<canvas id="radar" aria-hidden="true"></canvas>
+<header>
+  <div class="logo"><span class="dot"></span>Crypto Sniper</div>
+  <div class="hstat"><span id="feedState" class="pill off">Feed offline</span><span id="lic" class="pill" hidden></span></div>
+</header>
+
+<main id="gate">
+  <section class="hero">
+    <h1>Crypto Sniper</h1>
+    <p class="sub">Catch new Solana memecoins the second they launch. Filters decide. The bot buys. Your keys never leave your browser.</p>
+    <div class="cta">
+      <button id="unlock" class="btn primary">Unlock for 1 SOL</button>
+      <button id="toggleRestore" class="btn ghost">I already paid</button>
+    </div>
+    <div id="restore" hidden>
+      <input id="restoreSig" placeholder="Paste your payment transaction signature" autocomplete="off">
+      <button id="restoreGo" class="btn">Restore access</button>
+    </div>
+    <p id="gateMsg" class="msg" role="status"></p>
+    <ul class="facts">
+      <li><b>Live launch feed</b> Every new pump.fun token appears as a blip on the radar within a second.</li>
+      <li><b>Auto-buy filters</b> Dev buy size, name blocklist, position cap, session spend cap.</li>
+      <li><b>Non-custodial</b> A burner wallet lives in this browser. The server never sees its key.</li>
+    </ul>
+  </section>
+</main>
+
+<main id="app" hidden>
+  <section class="panel" id="cfg">
+    <h2>Sniper settings</h2>
+    <div id="form"></div>
+    <div class="row">
+      <button id="arm" class="btn primary">Arm sniper</button>
+      <span id="armState" class="pill off">Disarmed</span>
+    </div>
+    <p class="note">Dry run is on by default. It logs what the bot would buy without spending anything.</p>
+  </section>
+
+  <section class="panel" id="feedPanel">
+    <h2>Launch feed</h2>
+    <div id="feedList" class="list"><p class="empty">Waiting for the next launch.</p></div>
+  </section>
+
+  <section class="panel" id="side">
+    <h2>Burner wallet</h2>
+    <div id="wallet"></div>
+    <h2>Positions</h2>
+    <div id="posList" class="list"><p class="empty">No positions yet. Arm the sniper to start.</p></div>
+    <h2>Log</h2>
+    <div id="log" class="list mono"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.95.3/lib/index.iife.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

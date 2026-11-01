@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: crypto-sniper
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: LICENSE_SECRET
+        generateValue: true
+      - key: RPC_URL
+        sync: false
+      - key: PAY_WALLET
+        value: HQ7Fp1W1AjkBF5j6pQMKHfTPRUZxqVr72cPNs5cYDz3D
+      - key: PRICE_SOL
+        value: "1"

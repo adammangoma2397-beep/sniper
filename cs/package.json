@@ -1,0 +1,14 @@
+{
+  "name": "crypto-sniper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.js", "check": "node --check server.js" },
+  "dependencies": {
+    "@solana/web3.js": "1.95.3",
+    "express": "4.19.2",
+    "tweetnacl": "1.0.3",
+    "ws": "8.18.0"
+  }
+}
